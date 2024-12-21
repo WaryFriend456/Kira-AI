@@ -20,3 +20,5 @@ model User {
 
 //  to sync the database with the schema
 // npx prisma db push
+// to view it in the database
+// npx prisma studio
