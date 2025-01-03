@@ -1,5 +1,6 @@
 // import Link from "next/link";
 
+import LinkAccountButton from "@/components/link-account-button";
 import { Button } from "@/components/ui/button";
 
 // import { LatestPost } from "@/app/_components/post";
@@ -53,7 +54,8 @@ export default async function Home() {
     // </HydrateClient>
     <>
     <h1 className="text-blue-600">Hello World</h1>
-    <Button>Click me</Button>
+    {/* <Button>Click me</Button> */}
+    <LinkAccountButton/>
     </>
   );
 }
