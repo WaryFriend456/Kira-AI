@@ -12,6 +12,9 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { cn } from '@/lib/utils'
+import { Separator } from "@/components/ui/separator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+
 
 type Props = {
     defaultLayout: number[] | undefined
@@ -43,7 +46,44 @@ const Mail = ({ defaultLayout = [20, 32, 48], navCollapsedSize, defaultCollapsed
                                 {/* Account Switcher */}
                                 Account Switcher
                             </div>
+                            <Separator />
+                            {/* SideBar */}
+                            Sidebar
+                            <div className='flex-1 '></div>
+                            {/* AI */}
+                            Ask AI
                         </div>
+                </ResizablePanel>
+                <ResizableHandle withHandle/>
+                <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
+                    <Tabs defaultValue='inbox'>
+                        <div className='flex items-center px-4 py-2'>
+                            <h1 className='text-xl font-bold'>Inbox</h1>
+                            <TabsList className='ml-auto'>
+                                <TabsTrigger value='inbox' className='text-zinc-600 dark:text-zinc-200'>
+                                    Inbox
+                                </TabsTrigger>
+                                <TabsTrigger value='done' className='text-zinc-600 dark:text-zinc-200'>
+                                    Done
+                                </TabsTrigger>
+                            </TabsList>
+                        </div>
+                        <Separator />
+                        {/* Search Bar */}
+                        Search Bar
+                        <TabsContent value='inbox'>
+                            {/* Inbox */}
+                            Inbox
+                        </TabsContent>
+                        <TabsContent value='done'>
+                            {/* Done */}
+                            Done
+                        </TabsContent>
+                    </Tabs>
+                </ResizablePanel>
+                <ResizableHandle withHandle/>
+                <ResizablePanel defaultSize={defaultLayout[2]} minSize={30}>
+                    Thread Display
                 </ResizablePanel>
             </ResizablePanelGroup>
         </TooltipProvider>
